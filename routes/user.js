@@ -122,13 +122,13 @@ router.put("/update/:id", (req, res) => {
 			result: "Please fill the fields"
 		});
 	} else {
-		const updatedUser = new User({
+		const updatedUser = {
 			name: req.body.name,
 			username: req.body.username,
 			email: req.body.email,
 			password: req.body.password,
 			isAdmin: req.body.isAdmin
-		});
+		};
 		console.log(updatedUser);
 		User.updateUserById(id, updatedUser, (err, result) => {
 			if (err) {
